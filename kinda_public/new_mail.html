@@ -1,0 +1,30 @@
+<form onmouseenter="store_my_soul()" action="attempt_newmail" method="POST">
+	<h1>Skriv din mail</h1>
+	
+	
+	<p>Emne:</p>
+	<input style="width: 300px;" type="text" name="subject" placeholder="Du skal skrive et emne!"><br>
+	
+	<p>Tekst:</p>
+	<textarea hidden="true" id="txa" class="ta" name="content">hej</textarea>
+	
+	<div onkeyup="key(event)" contenteditable="true" class="ta" id="mail-txt" style="border: 1px solid; border-color: red;" name="example">Skriv noget</div>
+
+	<p>Send til mig:</p>
+	<input type="checkbox" name="stm">
+	<p></p>
+	<input onclick="key()" type="submit">
+</form>
+
+<script>
+	var mail_txt = "";
+	function store_my_soul() {
+		mail_txt = document.getElementById("mail-txt");
+	};
+
+	function key(event) {
+		/* isTrusted, key, code, location, ctrlKey*/
+		let txa = document.getElementById("txa");
+		txa.value = mail_txt.innerHTML;
+	}
+</script>

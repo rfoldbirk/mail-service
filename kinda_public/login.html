@@ -1,0 +1,15 @@
+<h1>LOG IND!</h1>
+
+<script type="text/javascript">
+	// prompt a login
+	let username = prompt("Brugernavn:", document.cookie.usr)
+	let password = prompt("Kodeord:", "1234")
+
+	// stores the cookies
+	document.cookie = "usr=" + username
+	document.cookie = "psw=" + password
+
+	// reloads page
+	window.location.href = ''
+
+</script>
