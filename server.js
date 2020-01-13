@@ -321,4 +321,4 @@ var httpServer = http.createServer(app);
 var httpsServer = https.createServer(credentials, app);
 
 httpServer.listen(8080);
-httpsServer.listen(8443);
+httpsServer.listen(80);
