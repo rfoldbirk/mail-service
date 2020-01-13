@@ -228,9 +228,7 @@ function sendMail(to, subject, html_msg, req) {
 			html: mini_list.items[1] + unsub,
 		}
 
-		console.log(mini_list.items[1] + unsub)
-
-		// sgMail.send(msg)
+		sgMail.send(msg)
 	}
 
 }
