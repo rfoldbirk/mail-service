@@ -222,7 +222,7 @@ function sendMail(to, subject, html_msg, req) {
 
 		const msg = {
 			to: target,
-			from: 'rasmusfoldberg@gmail.com',
+			from: my_email,
 			subject: mini_list.items[0],
 			text: 'Der ser ud til at din browser ikke understøtter HTML',
 			html: mini_list.items[1] + unsub,
