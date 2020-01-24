@@ -3,3 +3,5 @@ test.js
 server_stuff/api_key.json
 server_stuff/cookieman
 server_stuff/usragent
+compiled_javascript
+package-lock.json

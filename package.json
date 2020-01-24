@@ -1,16 +1,16 @@
 {
   "name": "mail-service",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node server"
+    "start": "node ./compiled_javascript/app.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rfoldbirk/mail-service.git"
   },
-  "author": "RFB",
+  "author": "Rasmus Foldberg Birkebæk",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/rfoldbirk/mail-service/issues"
