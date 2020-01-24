@@ -9,6 +9,15 @@ export function load(): object {
     // mappen... :(
     // -------------------------------------------------
 
+
+    /*
+
+    Dette script gør virkelig ikke andet end at loade dependencies
+    Jeg syntes det fyldte lidt for meget i den rigtige fil
+
+
+    */
+
     const fs = require('fs')
     const bodyParser = require('body-parser')
     const cookieParser = require('cookie-parser')
@@ -19,14 +28,14 @@ export function load(): object {
 
     var credentials = {key: privateKey, cert: certificate}
     var express = require('express')
-    var app = express()
+    var web = express()
 
-    app.use(bodyParser.urlencoded({ extended: false }))
-    app.use(bodyParser.json())
-    app.use(cookieParser())
+    web.use(bodyParser.urlencoded({ extended: false }))
+    web.use(bodyParser.json())
+    web.use(cookieParser())
 
-    var httpServer = http.createServer(app)
-    var httpsServer = https.createServer(credentials, app)
+    var httpServer = http.createServer(web)
+    var httpsServer = https.createServer(credentials, web)
 
     httpServer.listen(8080)
     httpsServer.listen(8443)
@@ -40,6 +49,6 @@ export function load(): object {
         privateKey: privateKey,
         certificate: certificate,
         credentials: credentials,
-        app: app
+        web: web
     }
 }

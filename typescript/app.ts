@@ -16,16 +16,16 @@ console.log("Mail-Service v2.0.0")
 */
 
 import { load } from "./load"
-const { fs, bodyParser, cookieParser, http, https, privateKey, certificate, credentials, app }: any = load()
+const { fs, bodyParser, cookieParser, http, https, privateKey, certificate, credentials, web }: any = load()
 
 
-app.use(function(req: any, res: any) {
+web.use(function(request: any, response: any) {
 
-    var {url, method, body, cookies} = req
+    var {url, method, body, cookies} = request
 
     // der skal tjekkes om brugeren er logget ind.
     // der skal tjekkes om brugeren bare har mistet deres cookies.
 
-	res.send('default')
+	response.send('Hej med dig!')
 })
 
