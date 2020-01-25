@@ -4,7 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node ./compiled_javascript/app.js"
+    "start": "node ./compiled_javascript/app.js",
+    "auto_compile": "tsc -w",
+    "auto_deploy": "nodemon --watch -/compiled_javascript ./compiled_javascript/app"
   },
   "repository": {
     "type": "git",
@@ -21,5 +23,8 @@
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.4",
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }

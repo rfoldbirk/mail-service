@@ -1,20 +1,8 @@
 export function load(): object {
-    // -------------------------------------------------
-    var currentPath: string[] = __dirname.split('/')
-    const lengthOfPath: number = currentPath.length - 1
-    currentPath.splice(lengthOfPath, 1)
-    const path: string = currentPath.join('/')
-    // Jeg lavede det her fordi, når jeg skrev __dirname
-    // ville jeg ikke kunne få fat i server_stuff
-    // mappen... :(
-    // -------------------------------------------------
-
-
     /*
 
     Dette script gør virkelig ikke andet end at loade dependencies
-    Jeg syntes det fyldte lidt for meget i den rigtige fil
-
+    Jeg syntes det fyldte lidt for meget i den rigtige fil (app.ts)
 
     */
 
@@ -23,10 +11,8 @@ export function load(): object {
     const cookieParser = require('cookie-parser')
     const http = require('http')
     const https = require('https')
-    const privateKey  = fs.readFileSync(path + '/server_stuff/junk/certificate.key', 'utf8')
-    const certificate = fs.readFileSync(path + '/server_stuff/junk/certificate.crt', 'utf8')
 
-    var credentials = {key: privateKey, cert: certificate}
+    var credentials = {key: "", cert: ""}
     var express = require('express')
     var web = express()
 
@@ -46,8 +32,6 @@ export function load(): object {
         cookieParser: cookieParser,
         http: http,
         https: https,
-        privateKey: privateKey,
-        certificate: certificate,
         credentials: credentials,
         web: web
     }

@@ -1,5 +1,6 @@
 console.clear()
-console.log("Mail-Service v2.0.0")
+console.log("Mail-Service v2.0.0 Alpha")
+console.log("Du kan åbne hjemmesiden på: http://localhost:8080")
 
 /*
 
@@ -8,7 +9,7 @@ console.log("Mail-Service v2.0.0")
     - [ ] smide web-requests videre til et andet script som så kan bestemme hvad der skal ske. Jeg tænker vi kalder vi filen: 'requestHandler.ts'
 
     - [ ] Vi skal også lave en funktion, som sender en mail afsted ud fra indhold.
-        - Den skal returner true, hvis alt går godt, men hvis den ikke får nok argumenter, 
+        - Den skal returner true, hvis alt går godt, men hvis den ikke får nok argumenter,
           den returnere false, og så en grund.
 
     - [ ] Vi 'render' alt på client siden, med undtagelsen af det vi sender afsted i mails, det betyder.
@@ -16,7 +17,7 @@ console.log("Mail-Service v2.0.0")
 */
 
 import { load } from "./load"
-const { fs, bodyParser, cookieParser, http, https, privateKey, certificate, credentials, web }: any = load()
+const { fs, bodyParser, cookieParser, http, https, credentials, web }: any = load()
 
 
 web.use(function(request: any, response: any) {
@@ -26,6 +27,5 @@ web.use(function(request: any, response: any) {
     // der skal tjekkes om brugeren er logget ind.
     // der skal tjekkes om brugeren bare har mistet deres cookies.
 
-	response.send('Hej med dig!')
+	response.send('Hej med tjig!')
 })
-
