@@ -9,7 +9,7 @@
             <% } else{ %>
                 <li class="nav-item">
             <% } %>
-                <a class="nav-link" href="../dashboard">Dashboard <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="../profile/dashboard">Dashboard <span class="sr-only">(current)</span></a>
             </li>
 
 
@@ -18,7 +18,7 @@
             <% } else{ %>
                 <li class="nav-item">
             <% } %>
-                <a class="nav-link" href="../write">Ny mail</a>
+                <a class="nav-link" href="../profile/write">Ny mail</a>
             </li>
 
 
@@ -27,7 +27,7 @@
             <% } else{ %>
                 <li class="nav-item">
             <% } %>
-                <a class="nav-link" href="../drafts">Kladder</a>
+                <a class="nav-link" href="../profile/drafts">Kladder</a>
             </li>
 
 
@@ -36,7 +36,7 @@
             <% } else{ %>
                 <li class="nav-item">
             <% } %>
-                <a class="nav-link" href="../sent">Sendte mails</a>
+                <a class="nav-link" href="../profile/sent">Sendte mails</a>
             </li>
 
 
@@ -46,10 +46,10 @@
                     Min profil
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Kontakter</a>
-                    <a class="dropdown-item" href="#">Indstillinger</a>
+                    <a class="dropdown-item" href="../profile/contacts">Kontakter</a>
+                    <a class="dropdown-item" href="../profile/settings">Indstillinger</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Log ud</a>
+                    <a class="dropdown-item" href="../auth/logout">Log ud</a>
                 </div>
             </li>
         </ul>

@@ -1,0 +1,19 @@
+.step1 {
+    margin-top: 50px; 
+    width: 50%; 
+    min-width: 400px;
+    background-color: skyblue; 
+    padding: 30px; 
+    border-radius: 8px; 
+    height: 300px;
+}
+
+
+.protip {
+    float: right; 
+    border-style: solid; 
+    border-width: 1px; 
+    border-radius: 5px; 
+    width: 200px; 
+    padding: 20px
+}

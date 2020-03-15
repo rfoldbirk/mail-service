@@ -10,21 +10,18 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Log ind</title>
+    <title>Dashboard</title>
 </head>
 
 
 <body>
 
-    <% if (locals.loggedin) { %>
-        <%- include("../partials/navbar/loggedin.ejs") %>
-    <% } else{ %>
-        <%- include("../partials/navbar/loggedout.ejs") %>
-    <% } %>
+    <!-- Den eneste måde man får fat i denne side, er hvis man er logget ind! ... jeg tjekker altså ikke om man er logget ind-->
+    <%- include("../../partials/navbar/loggedin.ejs") %>
 
 
-    <div class="container" style="margin: 50px;">
-        <a class="btn btn-primary btn-lg" href="/auth/google" role="button">Log ind med Google</a>
+    <div class="container" style="margin: 50px">
+        <h1>Hej <%= user.firstname %></h1>
     </div>
 
 

@@ -5,7 +5,6 @@ const fs = require('fs')
 router.use('/', (req, res) => {
     // handle assets
     let list = []
-    console.log(req.url)
 
     let children = fs.readdirSync(process.env.DIRNAME + '/assets')
 
@@ -14,7 +13,6 @@ router.use('/', (req, res) => {
 
     let fileType = req.url.split('/')[1]
     let requestedFile = req.url.split('/')[2]
-    console.log(fileType)
 
     if (list.includes(fileType)) { // hvis den specificerede filtype findes, prøver vi at se om filen findes
         let pathToFile = `${process.env.DIRNAME}/assets/${fileType}/${requestedFile}`

@@ -3,28 +3,12 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
 
-            <% if ( locals.active && active == 'priser') { %>
-                <li class="nav-item active">
-            <% } else{ %>
-                <li class="nav-item">
-            <% } %>
-                <a class="nav-link" href="#">Priser</a>
+            <li class="nav-item">
+                <a class="nav-link" href="../#prices">Priser</a>
             </li>
 
-            <% if( locals.active && active == 'log ind'){ %>
-                <li class="nav-item active">
-            <% } else{ %>
-                <li class="nav-item">
-            <% } %>
-                <a class="nav-link" href="#">Log ind</a>
-            </li>
-
-            <% if( locals.active && active == 'opret konto'){ %>
-                <li class="nav-item active">
-            <% } else{ %>
-                <li class="nav-item">
-            <% } %>
-                <a class="nav-link" href="#">Opret konto</a>
+            <li class="nav-item">
+                <a class="nav-link" href="../auth/login">Log ind / Opret konto</a>
             </li>
 
         </ul>

@@ -17,18 +17,20 @@
 <body>
 
   <% if(locals.loggedin){ %>
+  <!-- NavBaren ændrer sig afhængigt af om man er logget ind eller ej -->
   <%- include("../partials/navbar/loggedin.ejs") %>
   <% } else{ %>
   <%- include("../partials/navbar/loggedout.ejs") %>
   <% } %>
 
 
-  <div class="container" style="margin: 50px;">
-    <a class="btn btn-primary btn-lg" href="/auth/login" role="button">Log ind</a>
+  <div class="container" style="margin: 50px">
+    <h1>Dette er hjemmesiden</h1>
   </div>
 
 
   <!-- Optional JavaScript -->
+  <script src="/assets/js/navbar-auto-active.js"></script>
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

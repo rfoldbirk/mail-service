@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="dk">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/assets/css/signup.css">
+
+    <title>Dashboard</title>
+</head>
+
+
+<body>
+
+    <!-- Den eneste måde man får fat i denne side, er hvis man er logget ind! ... jeg tjekker altså ikke om man er logget ind-->
+    <%- include("../../partials/navbar/loggedin.ejs") %>
+
+    <div class="container" style="margin: 50px">
+        <h1>Hej <%= user.firstname %></h1>
+
+        <h5>For at oprette din konto, udfyld venligst alle felterne</h5>
+
+
+        <div class="step1">
+            <h5>1. Send bekræftelses kode til din email</h5>
+            <div class="btn-group">
+                <button value="-1" id="email" type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Vælg din email adresse
+                </button>
+                <div id="emails" class="dropdown-menu dropdown-menu-left">
+                    <!--Her bliver alle en emails smidt ind-->
+                    <!--Normalt er der kun 1-->
+                </div>
+            </div>
+
+            <div class="protip">
+                <h6>ProTip!</h6>
+                <p>Hvis du har flere emails tilknyttet til den samme konto, kan du selv vælge hvilken mail du vil bruge
+                </p>
+            </div>
+
+
+        </div>
+    </div>
+
+    <p hidden id="hidden-emails"><%= JSON.stringify(user.email) %></p>
+
+    <!-- Optional JavaScript -->
+    <script src="/assets/js/navbar-auto-active.js"></script>
+    <script src="/assets/js/signup-email-injector.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
