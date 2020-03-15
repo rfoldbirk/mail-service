@@ -24,29 +24,14 @@
     <div class="container" style="margin: 50px">
         <h1>Hej <%= user.firstname %></h1>
 
+        <br>
         <h5>For at oprette din konto, udfyld venligst alle felterne</h5>
 
+        <div class="choose-email">
 
-        <div class="step1">
-            <h5>1. Send bekræftelses kode til din email</h5>
-            <div class="btn-group">
-                <button value="-1" id="email" type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Vælg din email adresse
-                </button>
-                <div id="emails" class="dropdown-menu dropdown-menu-left">
-                    <!--Her bliver alle en emails smidt ind-->
-                    <!--Normalt er der kun 1-->
-                </div>
-            </div>
-
-            <div class="protip">
-                <h6>ProTip!</h6>
-                <p>Hvis du har flere emails tilknyttet til den samme konto, kan du selv vælge hvilken mail du vil bruge
-                </p>
-            </div>
-
-
+            
         </div>
+
     </div>
 
     <p hidden id="hidden-emails"><%= JSON.stringify(user.email) %></p>
