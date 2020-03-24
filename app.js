@@ -1,10 +1,10 @@
 require('dotenv').config()
 
 // set global dirname
-let slash = (process.platform == 'win32') ? '\\':'/'
+let slash = (process.platform == 'win32') ? '\\' : '/'
 let split_dirname = __dirname.split(slash)
 
-while (split_dirname[split_dirname.length-1] != process.env.FOLDER_NAME)
+while (split_dirname[split_dirname.length - 1] != process.env.FOLDER_NAME)
     split_dirname.pop()
 
 process.env.DIRNAME = split_dirname.join('/')
@@ -30,7 +30,7 @@ app.set('view engine', 'ejs')
 
 // cookieSession setup
 app.use(cookieSession({
-    maxAge: 24*60*60*1000, // en dag
+    maxAge: 24 * 60 * 60 * 1000, // en dag
     keys: [process.env.COOKIE_KEY]
 
 }))
@@ -50,11 +50,18 @@ app.use('/auth', authRoute)
 app.use('/assets', assetsRoute)
 app.use('/profile', profileRoute)
 
+app.get('/pricing', (req, res) => {
+    let loggedin = false
+    if (req.user) loggedin = true
+
+    res.render('pages/pricing', { loggedin: loggedin })
+})
+
 app.get('/', (req, res) => {
     let loggedin = false
     if (req.user) loggedin = true
 
-    res.render('pages/home', {loggedin: loggedin})
+    res.render('pages/home', { loggedin: loggedin })
 })
 
 app.listen(Number(process.env.HTTP), () => {

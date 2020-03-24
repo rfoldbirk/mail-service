@@ -22,14 +22,15 @@
     <%- include("../../partials/navbar/loggedin.ejs") %>
 
     <div class="container" style="margin: 50px">
-        <h1>Hej <%= user.firstname %></h1>
-
         <br>
-        <h5>For at oprette din konto, udfyld venligst alle felterne</h5>
-
-        <div class="choose-email">
-
-            
+        <div class="jumbotron">
+            <h1 class="display-4">Hej <%= user.firstname %></h1>
+            <p class="lead">
+                For at oprette en konto
+            </p>
+            <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
         </div>
 
     </div>

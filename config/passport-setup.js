@@ -7,7 +7,7 @@ passport.serializeUser((user, done) => {
     done(null, user.id)
 })
 
-passport.deserializeUser((id , done) => {
+passport.deserializeUser((id, done) => {
     User.findById(id).then((user) => {
         done(null, user)
     })
@@ -21,9 +21,10 @@ passport.use(
         clientSecret: process.env.API_GOOGLE_CLIENT_SECRET
     }, (accessToken, refreshToken, profile, done) => {
         // callback, which is fired under the authentication process
-        console.log(profile.emails)
-        // tjekker lige om brugeren findes først
-        User.findOne({oauthID: profile.id}).then((currentUser) => {
+        console.log(profile.id)
+            // tjekker lige om brugeren findes først
+        User.findOne({ oauthID: profile.id }).then((currentUser) => {
+            console.log('found')
             if (currentUser) {
                 // jeg har allerede brugeren
                 console.log('user already exists :', currentUser)
@@ -44,6 +45,6 @@ passport.use(
                     done(null, newUser)
                 })
             }
-        }) 
+        })
     })
 )

@@ -1,61 +1,27 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <%- include("../navbar/static.ejs") %>
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <link rel="stylesheet" href="/assets/css/pretty.css">
+    <link href="/assets/css/hover-min.css" rel="stylesheet">
+    <h5 class="my-0 mr-md-auto font-weight-normal">
+        <img src="/assets/icons/envelope.svg" alt="" width="32" height="32" title="Bootstrap">
+        <a class="pretty-link hvr-nice-position" href="../../"> Mail Service </a>
+    </h5>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+    <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="/profile/dashboard">Dashboard</a>
+        <a class="p-2 text-dark" href="/profile/write">Ny mail</a>
+        <a class="p-2 text-dark" href="/profile/history">Sendte mails</a>
+        <a class="p-2 text-dark" href="/profile/drafts">Kladder</a>
+    </nav>
 
-            <% if ( locals.active && active == 'dashboard') { %>
-                <li class="nav-item active">
-            <% } else{ %>
-                <li class="nav-item">
-            <% } %>
-                <a class="nav-link" href="../profile/dashboard">Dashboard <span class="sr-only">(current)</span></a>
-            </li>
-
-
-            <% if ( locals.active && active == 'write') { %>
-                <li class="nav-item active">
-            <% } else{ %>
-                <li class="nav-item">
-            <% } %>
-                <a class="nav-link" href="../profile/write">Ny mail</a>
-            </li>
-
-
-            <% if ( locals.active && active == 'drafts') { %>
-                <li class="nav-item active">
-            <% } else{ %>
-                <li class="nav-item">
-            <% } %>
-                <a class="nav-link" href="../profile/drafts">Kladder</a>
-            </li>
-
-
-            <% if ( locals.active && active == 'sent') { %>
-                <li class="nav-item active">
-            <% } else{ %>
-                <li class="nav-item">
-            <% } %>
-                <a class="nav-link" href="../profile/sent">Sendte mails</a>
-            </li>
-
-
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    Min profil
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="../profile/contacts">Kontakter</a>
-                    <a class="dropdown-item" href="../profile/settings">Indstillinger</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="../auth/logout">Log ud</a>
-                </div>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+    <a class="btn btn-outline-primary nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Mere
+        </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="/profile/groups"> Grupper </a>
+        <a class="dropdown-item" href="/profile/settings"> Indstillinger </a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="/pricing"> Priser </a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="/auth/logout"> Log ud </a>
     </div>
-</nav>
+</div>

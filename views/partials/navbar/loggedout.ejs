@@ -1,16 +1,15 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <%- include("../navbar/static.ejs") %>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <link rel="stylesheet" href="/assets/css/pretty.css">
+    <link href="/assets/css/hover-min.css" rel="stylesheet">
+    <h5 class="my-0 mr-md-auto font-weight-normal">
+        <img src="/assets/icons/envelope.svg" alt="" width="32" height="32" title="Bootstrap">
+        <a class="pretty-link hvr-nice-position" href="../../"> Mail Service </a>
+    </h5>
 
-            <li class="nav-item">
-                <a class="nav-link" href="../prices">Priser</a>
-            </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="../auth/login">Log ind / Opret konto</a>
-            </li>
-
-        </ul>
-    </div>
-</nav>
+    <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark pretty-link hvr-underline-from-center" href="../pricing">Priser</a>
+        <a class="p-2 text-dark pretty-link hvr-underline-from-center" href="../features">Features</a>
+    </nav>
+    <a class="btn btn-outline-primary" href="../../auth/login">Sign up / Sign in</a>
+</div>
