@@ -1,10 +1,9 @@
 const router = require('express').Router()
 const passport = require('passport')
 
+const renderContent = require('../renderContent')
+
 // auth login
-router.get('/login', (req, res) => {
-    res.render('pages/login')
-})
 
 // signup
 router.get('/signup', (req, res) => {
@@ -15,7 +14,7 @@ router.get('/signup', (req, res) => {
 router.get('/logout', (req, res) => {
     // handle with passport
     req.logout()
-    res.redirect('../../auth/login')
+    res.redirect('/auth/login')
 })
 
 // auth with google
@@ -25,23 +24,17 @@ router.get('/google', passport.authenticate('google', {
 
 // callback
 router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
-    if (req.user.newProfile) {
-        res.redirect('../../profile/signup')
-    } else if (req.user.chosenEmail == -1) {
-        res.redirect('../../profile/settings')
-    } else {
-        res.redirect('../../profile/dashboard')
-    }
+    res.redirect('/profile')
 })
 
 
 router.get('*', (req, res) => {
     if (req.user) {
-        res.redirect('../../profile/dashboard')
+        res.redirect('/profile/dashboard')
         return
     }
 
-    res.render('pages/home')
+    res.redirect('/')
 })
 
 module.exports = router

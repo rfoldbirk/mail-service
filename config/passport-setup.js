@@ -21,27 +21,29 @@ passport.use(
         clientSecret: process.env.API_GOOGLE_CLIENT_SECRET
     }, (accessToken, refreshToken, profile, done) => {
         // callback, which is fired under the authentication process
-        console.log(profile.id)
-            // tjekker lige om brugeren findes først
-        User.findOne({ oauthID: profile.id }).then((currentUser) => {
-            console.log('found')
+
+        // tjekker lige om brugeren findes først
+
+        User.findOne({ authID: profile.id }).then((currentUser) => {
+
             if (currentUser) {
                 // jeg har allerede brugeren
-                console.log('user already exists :', currentUser)
+                console.log('user already exists!')
                 done(null, currentUser)
             } else {
-                // den findes ikke, og jeg opretter brugeren
+
+                // Hvis der ikke blev fundet en bruger som matchede, bliver en ny bruger oprettet :)
 
                 new User({
+
                     firstname: profile.name.givenName,
                     lastname: profile.name.familyName,
-                    oauthID: profile.id,
                     email: profile.emails,
-                    chosenEmail: -1,
-                    newProfile: true,
-                    subscription: 'null'
+                    amountOfMails: 5,
+                    authID: profile.id
+
                 }).save().then((newUser) => {
-                    console.log('new user created:', newUser)
+                    console.log('new user created!')
                     done(null, newUser)
                 })
             }

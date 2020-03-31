@@ -1,0 +1,49 @@
+.theme-light {
+    --body-bg-color: white;
+
+    --div-bg-color: rgb(181, 215, 230);
+    --text-color: #1b1b1b;
+
+    --link-hover-color: #ffffff;
+    --link-hover-padding: 8px;
+    --link-hover-bg-color: rgba(0, 0, 0, 0.781);
+    --link-special-color: #ffeb3b;
+
+    --btn-color: rgb(133, 190, 197);
+    --btn-hover-color: rgb(101, 194, 218);
+
+    /* Custom colors */
+    --black: #24252A;
+    --dark-blue: #2C4D60;
+    --middle-blue: #007B88;
+    --cyan: #22AB93;
+    --green: #87D783;
+    --yellow: #F9F871;
+}
+
+.theme-dark {
+    --body-bg-color: #101010;
+
+    --nav-bg-color: #24252A;
+    --div-bg-color: #24252A;
+    --text-color: #edf0f1;
+
+    --link-hover-color: #000000;
+    --link-hover-padding: 8px;
+    --link-hover-bg-color: rgba(255, 255, 255, 0.781);
+    --link-selected-bg-color: rgba(255, 255, 255, 0.481);
+
+    --link-special-color: #ffeb3b;
+    
+    --btn-color: rgba(0, 136, 169, 1);
+    --btn-hover-color: rgba(0, 136, 169, 0.6);
+
+    /* Custom colors */
+    --black: #24252A;
+    --dark-blue: rgb(14, 14, 14);
+    --middle-blue: #007B88;
+    --cyan: #22AB93;
+    --cyan-altered: rgb(17, 139, 117);
+    --green: #87D783;
+    --yellow: #F9F871;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title> Mail Service </title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" type='text/css' media='screen' href="/assets/css/content.css">
+    <link rel="stylesheet" type='text/css' media='screen' href="/assets/css/themes.css">
+    <link rel="stylesheet" type='text/css' media='screen' href="/assets/css/default.css">
+    <link rel='stylesheet' type='text/css' media='screen' href='/assets/css/navbar.css'>
+    <link disabled rel='stylesheet' type='text/css' media='screen' href='/assets/css/smooth-transition.css' id="smooth-transition">
+
+</head>
+<body class="<%= theme %>">
+
+    <!-- Navbar ... den skal nok indstille sig selv :) -->
+    <%- include('./partials/navbar.ejs'); %>
+
+    <!-- Resten -->
+    <%if ( locals.content ) { %>
+        <%- include( content ); %>
+    <% } else { %>
+        <!-- Default Content -->
+        <%if ( !loggedin ) { %>
+            <div class="content">
+                <div class="container">
+                    <h1>
+                        Velkommen til Mail Service!
+                        <br><br><br>
+                    </h1>
+                    <h3>Opret en konto</h3>
+                </div>
+            </div>
+        <% } else { %>
+            <div class="content">
+                <div class="container def-title">
+                    <h1> Velkommen, <%= user.firstname +' '+ user.lastname %>! </h1>
+                </div>
+            </div>
+
+
+            <div class="content">
+                <div class="container space-l">
+                    <h2> Du mangler noget?! </h2>
+                    <br><br>
+                    <p>
+                        Godt at se dig! Du mangler lige at udfylde noget i indstillingerne :/ <br><br>
+                        Bare rolig, vi bider ikke
+                        <br><br><br><a class="content-btn" href="/profile/settings">Gå til indstillinger</a>
+                    </p>
+                </div>
+                <div class="container">
+                    <h2>
+                        Send din første mail
+                    </h2>
+                    <br><br>
+                    <p>
+                        Hvad med at sende en mail? Du kan stadig nå at sende <%= user.amountOfMails %> mails!
+                        <br><br><br><br><a class="content-btn" href="/profile/write">Send en mail</a>
+                    </p>
+                </div>
+            </div>
+        <% } %>
+        
+        
+    <% } %>
+
+
+    <!-- Footer ... den skal nok indstille sig selv :) -->
+    <!-- Jeg har valgt at fjerne den indtil videre -->
+    <!-- <%- include('./partials/footer.ejs'); %> -->
+    
+</body>
+</html>

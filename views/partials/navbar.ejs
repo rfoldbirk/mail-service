@@ -1,0 +1,36 @@
+<header>
+    <h2 class="navbar-title">
+        <%if ( locals.content ) { %>
+            <a href="/">
+        <% } else { %>
+            <a>
+        <% } %>
+        <%if ( locals.title ) { %>
+            <%= title %>
+        <% } else { %>
+            Hov! Der skete vist en fejl :/
+        <% } %>
+    </a> </h2>
+
+    
+    
+    <script src="/assets/js/catchRightClick.js"></script>
+
+    <%if ( !loggedin ) { %>
+        <a href="/pricing"> <div <%if ( locals.url == '/pricing' ) { %>class="navbar-link navbar-link-current"<% } else { %>class="navbar-link"<% } %>> Priser </div></a>
+            <a href="/help"> <div <%if ( locals.url == '/help' ) { %>class="navbar-link navbar-link-current"<% } else { %>class="navbar-link"<% } %>> Kontakt </div></a>
+    <% } else { %>
+            <a href="/profile/write"> <div <%if ( locals.url == '/write' ) { %>class="navbar-link navbar-link-current"<% } else { %>class="navbar-link"<% } %>> Ny Mail </div></a>
+            <a href="/profile/history"> <div <%if ( locals.url == '/history' ) { %>class="navbar-link navbar-link-current"<% } else { %>class="navbar-link"<% } %>> Historik </div></a>
+            <a href="/profile/settings"> <div <%if ( locals.url == '/settings' ) { %>class="navbar-link navbar-link-current"<% } else { %>class="navbar-link"<% } %>> Indstillinger </div></a>
+    <% } %>
+
+    <a class="cta" href="#">
+        <%if ( !loggedin ) { %>
+            <a href="/auth/google">
+                <button class="navbar-btn" > Log ind / Opret </button>
+            </a>
+        <% } %>
+        
+    </a>
+</header>

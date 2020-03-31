@@ -1,0 +1,62 @@
+/* Navbar */
+
+:root {
+    --original-padding: 7px;
+    --extra-padding-on-hover: 7px;
+}
+
+header {
+    background-color: var(--black);
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.navbar-title {
+    flex: 1;
+}
+
+.navbar-link {
+    /* Appearence */
+    padding: var(--original-padding);
+    width: 100px;
+    border-radius: 10px;
+
+    /* Text */
+    text-align: center;
+
+    /* Placement */
+    margin-right: 15px;
+}
+
+.navbar-link:hover {
+    padding: var(--extra-padding-on-hover);
+    background-color: var(--link-hover-bg-color);
+    color: var(--link-hover-color);
+    cursor: pointer;
+    transition: all 0.5s ease 0s;
+}
+
+.navbar-link-current {
+    padding: var(--original-padding);
+    background-color: var(--link-selected-bg-color);
+    color: var(--link-hover-color);
+    width: 100px;
+    border-radius: 10px;
+}
+
+.navbar-btn {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+
+    background-color: var(--cyan);
+
+    transition: all 0.5s ease 0s;
+}
+
+.navbar-btn:hover {
+    background-color: var(--cyan-altered);
+}

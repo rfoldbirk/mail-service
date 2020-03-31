@@ -24,6 +24,8 @@ const passportSetup = require('./config/passport-setup')
 const mongoose = require('mongoose')
 const cookieSession = require('cookie-session')
 
+const renderContent = require('./renderContent')
+
 // set up view engine
 app.set('view engine', 'ejs')
 
@@ -50,18 +52,13 @@ app.use('/auth', authRoute)
 app.use('/assets', assetsRoute)
 app.use('/profile', profileRoute)
 
-app.get('/pricing', (req, res) => {
-    let loggedin = false
-    if (req.user) loggedin = true
 
-    res.render('pages/pricing', { loggedin: loggedin })
-})
-
-app.get('/', (req, res) => {
-    let loggedin = false
-    if (req.user) loggedin = true
-
-    res.render('pages/home', { loggedin: loggedin })
+app.get('*', (req, res) => {
+    if (req.session._ctx.headers.host.includes('api.')) {
+        // api håndtering :9
+    }
+    
+    renderContent(req, res, 'Mail Service')
 })
 
 app.listen(Number(process.env.HTTP), () => {
