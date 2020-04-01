@@ -30,6 +30,11 @@ body {
     padding: 20px;
     border-radius: 10px;
     width: 100%;
+    transition: background-color 0.3s ease 0s;
+}
+
+.container:hover {
+    background-color: var(--important);
 }
 
 .content-btn {
@@ -38,6 +43,40 @@ body {
     border: none;
 
     background-color: var(--cyan);
+
+    transition: all 0.5s ease 0s;
+
+    bottom: 0px;
+}
+
+.content-btn:hover {
+    background-color: var(--cyan-altered);
+    border-radius: 7px;
+}
+
+.content-danger {
+    background-color: var(--red);
+}
+
+.content-danger:hover {
+    background-color: var(--red-altered);
+    
+}
+
+.content-important {
+    background-color: var(--important);
+}
+
+
+.content-highlight {
+    margin: 0px 8px;
+    padding: 5px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: none;
+    color: black;
+
+    background-color: var(--green);
 
     transition: all 0.5s ease 0s;
 

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title> Mail Service </title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <link rel="stylesheet" href="/assets/css/custom-theme.css">
+
+    <link rel='stylesheet' type='text/css' media='screen' href='/assets/css/default-bs.css'>
+
+</head>
+
+<body class="<%= theme %>">
+
+        <!-- Sørger for at man kunne kan komme tilbage hvis content er noget andet
+        <%if ( locals.content ) { %>
+            <a class="navbar-brand" href="/">
+        <% } else { %>
+            <a class="navbar-brand">
+        <% } %>
+        <%if ( locals.title ) { %>
+            <%= title %>
+        <% } else { %>
+            Hov! Der skete vist en fejl :/
+        <% } %>
+        </a> -->
+        
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- Sørger for at man kunne kan komme tilbage hvis content er noget andet -->
+        <%if ( locals.content ) { %>
+            <a class="navbar-brand" href="/">
+        <% } else { %>
+            <a class="navbar-brand">
+        <% } %>
+        <%if ( locals.title ) { %>
+            <%= title %>
+        <% } else { %>
+            Hov! Der skete vist en fejl :/
+        <% } %>
+        </a>
+
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Min Profil
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">
+                            Ny Mail 
+                            <img class="float-right" src="/assets/icons/envelope-open.svg" alt="Ny Mail" width="25" height="25">
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            Kladder 
+                            <img class="float-right" src="/assets/icons/text-left.svg" alt="Kladder" width="25" height="25">
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            Historik 
+                            <img class="float-right" src="/assets/icons/clock.svg" alt="Historik" width="25" height="25">
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">
+                            Gå til indstillinger
+                            <img src="/assets/icons/gear-wide-connected.svg" alt="Indstillinger" width="25" height="25">
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a <%if ( locals.url == '/settings' ) { %>class="nav-link active"<% } else { %>class="nav-link"<% } %> href="#" tabindex="-1" aria-disabled="true">Indstillinger</a>
+                </li>
+            </ul>
+
+            <button class="btn btn-success my-2 my-sm-0" type="submit">Login / Opret</button>
+        </div>
+    </nav>
+
+    <%- include( content ); %>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

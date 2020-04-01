@@ -5,7 +5,8 @@ const userSchema = new Schema({
     firstname: String,
     lastname: String,
     email: [{ value: String, verified: Boolean }],
-    amountOfMails: Number,
+    amounts: { SentMails: Number, PendingMails: Number, Coins: Number },
+    mails: [{ Sent: Object, Pending: Object, Drafts: Object, Deleted: Object }],
     authID: String
 })
 

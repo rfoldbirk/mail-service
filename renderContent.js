@@ -18,10 +18,20 @@ function renderContent(req, res, title, content, user) {
     }
 
     
+    // temporary
+    theme = 'theme-dark'
 
-    
+    try {
+        content = content.replace('/bodies', '/bodies-bs')
+        content = content.replace('/partials', '/partials-bs')
+    } catch (err) {
+        // intet at erstatte
+    }
+
+    if (content === undefined) return
+
     let loggedin = (req.user) ? true:false
-    res.render('default', { url: req.url, theme: theme, loggedin: loggedin, title: title, content: content, user: req.user })
+    res.render('default-bootstrap', { url: req.url, theme: theme, loggedin: loggedin, title: title, content: content, user: req.user })
 }
 
 module.exports = renderContent

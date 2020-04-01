@@ -40,10 +40,15 @@
 
     /* Custom colors */
     --black: #24252A;
+    --grey: rgb(51, 52, 58);
+    --important: rgb(80, 82, 88);
     --dark-blue: rgb(14, 14, 14);
     --middle-blue: #007B88;
     --cyan: #22AB93;
     --cyan-altered: rgb(17, 139, 117);
     --green: #87D783;
+    --green-altered: rgb(103, 180, 99);
     --yellow: #F9F871;
+    --red: #c13030;
+    --red-altered: #af2020;
 }

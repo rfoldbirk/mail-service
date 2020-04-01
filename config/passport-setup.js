@@ -28,6 +28,15 @@ passport.use(
 
             if (currentUser) {
                 // jeg har allerede brugeren
+                if (currentUser.amounts.SentMails === undefined) {
+                    console.log('problem')
+                    User.updateOne({ authID: profile.id }, { amounts: { SentMails: 0, PendingMails: 0, Coins: 15 } }, function(err, res) {
+                        // Updated at most one doc, `res.modifiedCount` contains the number
+                        // of docs that MongoDB updated
+                        console.log('updated!')
+                    });
+                }
+
                 console.log('user already exists!')
                 done(null, currentUser)
             } else {
@@ -39,7 +48,8 @@ passport.use(
                     firstname: profile.name.givenName,
                     lastname: profile.name.familyName,
                     email: profile.emails,
-                    amountOfMails: 5,
+                    amounts: [{ SentMails: 0, PendingMails: 0, Coins: 15 }],
+                    mails: { Sent: [], Pending: [], Drafts: [], Deleted: [] },
                     authID: profile.id
 
                 }).save().then((newUser) => {

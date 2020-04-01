@@ -1,17 +1,37 @@
 <div class="content">
-    <div class="container gs-bottom-xl">
-        <p class="text-l" title="psst! indstillingerne kan godt finde på at bide ;)">Indstillinger</p>
+    <div class="container def-title">
+        <h1> Indstillinger </h1>
     </div>
+</div>
 
+
+<div class="content">
+    <div class="container space-l">
+        <h2> Statistik </h2>
+        <br><br>
+        <p>
+            Du har sendt  
+            <br><br><br>
+            
+            <a class="content-btn" href="/profile/settings">Se mere</a>
+        </p>
+    </div>
     <div class="container">
-        <br> <p>Du kan sende <u> <%= user.amountOfMails %></u> mails</p>
-        
-        <br> <p class="btn-visible width-s align-right align-bottom">Køb flere mails</p>
-        
-        <br>
-        
+        <h2>
+            Du har<span class="content-highlight"> <%= user.amounts.Coins %> mønter</span>på din konto
+        </h2>
+        <br><br>
+        <p>
+            Du kan altid købe flere mails!
+            
+            <br><br><br>
+            
+            <a class="content-btn" href="/profile/write">Få flere mønter</a>
+        </p>
     </div>
+</div>
 
+<div class="content">
     <div class="container">
         <br>
         <p>
@@ -20,5 +40,10 @@
             3. Custom theme
         </p>
         <br>
+    </div>
+</div>
+<div class="content">
+    <div class="container">
+        <a class="content-btn content-danger" href="/auth/logout">Log ud</a>
     </div>
 </div>

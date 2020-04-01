@@ -2,7 +2,7 @@
 
 :root {
     --original-padding: 7px;
-    --extra-padding-on-hover: 7px;
+    --extra-padding-on-hover: 9px;
 }
 
 header {
@@ -29,6 +29,8 @@ header {
 
     /* Placement */
     margin-right: 15px;
+
+    transition: all 0.3s ease 0s;
 }
 
 .navbar-link:hover {
@@ -36,7 +38,7 @@ header {
     background-color: var(--link-hover-bg-color);
     color: var(--link-hover-color);
     cursor: pointer;
-    transition: all 0.5s ease 0s;
+    border-radius: 7px;
 }
 
 .navbar-link-current {

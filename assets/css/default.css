@@ -1,4 +1,10 @@
 .def-title {
-    margin: 40px;
+    margin-top: 70px;
+    margin-bottom: 35px;
     text-align: center;
+    background-color: var(--grey);
+}
+
+.important {
+    background-color: var(--grey);
 }
