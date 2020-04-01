@@ -28,8 +28,6 @@ function renderContent(req, res, title, content, user) {
         // intet at erstatte
     }
 
-    if (content === undefined) return
-
     let loggedin = (req.user) ? true:false
     res.render('default-bootstrap', { url: req.url, theme: theme, loggedin: loggedin, title: title, content: content, user: req.user })
 }

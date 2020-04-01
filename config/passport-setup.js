@@ -50,7 +50,48 @@ passport.use(
                     email: profile.emails,
                     amounts: [{ SentMails: 0, PendingMails: 0, Coins: 15 }],
                     mails: { Sent: [], Pending: [], Drafts: [], Deleted: [] },
-                    authID: profile.id
+                    authID: profile.id,
+
+                    /// -------- \\\
+
+                    authID: profile.id,
+    
+                    firstname: profile.name.givenName,
+                    lastname: profile.name.familyName,
+                    Emails: profile.emails,
+
+                    Amounts: {
+                        sentMails: 0, 
+                        pendingMails: 0, 
+                        coins: 0 
+                    },
+
+                    Mails: { 
+                        Sent: [], 
+                        Pending: [],
+                        Drafts: [], 
+                        Deleted: [] 
+                    },
+                    Settings: [
+                        {
+                            title: "Tema",
+                            description: "Vælg dit tema",
+                            category: "theme",
+                            value: "1",
+                            default: "1",
+                            type: "bool"
+                        }
+                    ],
+                    History: {
+                        Actions: [
+                            {
+                                title: "Konto oprettet!",
+                                description: "Tillykke med din konto",
+                                date: "I dag"
+                            }
+                        ],
+                        Transactions: []
+                    }
 
                 }).save().then((newUser) => {
                     console.log('new user created!')
