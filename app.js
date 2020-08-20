@@ -11,13 +11,17 @@ process.env.DIRNAME = split_dirname.join('/')
 
 // const fs = require('fs')
 const express = require('express')
+var bodyParser = require('body-parser')
 
 // routes
 const authRoute = require('./routes/auth-routes')
 const assetsRoute = require('./routes/assets-routes')
+const apiRoute = require('./routes/api-routes')
 const profileRoute = require('./routes/profile-routes')
 
 const app = express()
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 const passport = require('passport')
 const passportSetup = require('./config/passport-setup')
@@ -50,6 +54,7 @@ mongoose.connect(process.env.MONGODB, () => {
 // set up routes
 app.use('/auth', authRoute)
 app.use('/assets', assetsRoute)
+app.use('/api', apiRoute)
 app.use('/profile', profileRoute)
 
 
@@ -58,7 +63,7 @@ app.get('*', (req, res) => {
         // api håndtering :9
     }
     
-    renderContent(req, res, 'Mail Service')
+    renderContent(req, res, 'Mail Service', './bodies/home')
 })
 
 app.listen(Number(process.env.HTTP), () => {

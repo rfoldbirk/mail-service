@@ -1,34 +1,93 @@
-<header>
-    <h2 class="navbar-title">
-        <%if ( locals.content ) { %>
-            <a href="/">
-        <% } else { %>
-            <a>
-        <% } %>
-        <%if ( locals.title ) { %>
-            <%= title %>
-        <% } else { %>
-            Hov! Der skete vist en fejl :/
-        <% } %>
-    </a> </h2>
-
-
-    <script src="/assets/js/catchRightClick.js"></script>
-
-    <%if ( !loggedin ) { %>
-        <a href="/pricing"> <div <%if ( locals.url == '/pricing' ) { %>class="navbar-link navbar-link-current"<% } else { %>class="navbar-link"<% } %>> Priser </div></a>
-            <a href="/help"> <div <%if ( locals.url == '/help' ) { %>class="navbar-link navbar-link-current"<% } else { %>class="navbar-link"<% } %>> Kontakt </div></a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <!-- Sørger for at man kunne kan komme tilbage hvis content er noget andet -->
+    <%if ( locals.content ) { %>
+        <a class="navbar-brand" href="/">
     <% } else { %>
-            <a href="/profile/write"> <div <%if ( locals.url == '/write' ) { %>class="navbar-link navbar-link-current"<% } else { %>class="navbar-link"<% } %>> Ny Mail </div></a>
-            <a href="/profile/history"> <div <%if ( locals.url == '/history' ) { %>class="navbar-link navbar-link-current"<% } else { %>class="navbar-link"<% } %>> Historik </div></a>
-            <a href="/profile/settings"> <div <%if ( locals.url == '/settings' ) { %>class="navbar-link navbar-link-current"<% } else { %>class="navbar-link"<% } %>> Indstillinger </div></a>
+        <a class="navbar-brand">
     <% } %>
-
-    <a class="cta" href="#">
-        <%if ( !loggedin ) { %>
-            <a href="/auth/google">
-                <button class="navbar-btn" > Log ind / Opret </button>
-            </a>
-        <% } %>
+    <%if ( locals.title ) { %>
+        <%= title %>
+    <% } else { %>
+        Hov! Der skete vist en fejl :/
+    <% } %>
     </a>
-</header>
+
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <%if ( loggedin ) { %>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Mail
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/profile/history">
+                            Oversigt 
+                            <img class="float-right" src="/assets/icons/clock.svg" alt="Historik" width="25" height="25">
+                        </a>
+                        <a class="dropdown-item" href="/profile/drafts">
+                            Kladder 
+                            <img class="float-right" src="/assets/icons/text-left.svg" alt="Kladder" width="25" height="25">
+                        </a>
+                        
+                        <div class="dropdown-divider"></div>
+
+                        <a class="dropdown-item" href="/profile/write">
+                            Ny mail 
+                            <img class="float-right" src="/assets/icons/envelope-open.svg" alt="Ny Mail" width="25" height="25">
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false"> Grupper </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/profile/groups"> Oversigt </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/profile/group/new"> Ny gruppe </a>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a <%if ( locals.url == '/settings' ) { %>class="nav-link active"<% } else { %>class="nav-link"<% } %> href="/profile/settings" tabindex="-1" aria-disabled="true">Indstillinger</a>
+                </li>
+            </ul>
+
+            
+    
+            <form action="/auth/logout">
+                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" >Logud</button>
+            </form>
+
+
+
+    <% } else { %>
+
+
+
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Priser</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a <%if ( locals.url == '/settings' ) { %>class="nav-link active"<% } else { %>class="nav-link"<% } %> href="#" tabindex="-1" aria-disabled="true"> Kontakt </a>
+                </li>
+            </ul>
+    
+            <form action="/auth/google">
+                <button class="btn btn-success my-2 my-sm-0" type="submit" >Login / Opret</button>
+            </form>
+    <% } %>
+    
+    </div>
+</nav>

@@ -10,7 +10,7 @@ function checkUser(req, res) { // tjekker om brugeren er logget ind
     return false
 }
 
-const valid_pages = ['/settings', '/history'] // skal starte med: '/'
+const valid_pages = ['/settings', '/history', "/groups"] // skal starte med: '/'
 
 router.use('/', (req, res) => {
     if (checkUser(req, res)) return
@@ -18,7 +18,8 @@ router.use('/', (req, res) => {
 
     if (valid_pages.includes(req.url)) {
         
-        renderContent(req, res, 'Mail Service', './bodies' + req.url, req.user)
+        const content = './bodies' + req.url
+        renderContent(req, res, 'Mail Service', content, req.user)
         return
     }
 

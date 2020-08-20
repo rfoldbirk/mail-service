@@ -28,15 +28,6 @@ passport.use(
 
             if (currentUser) {
                 // jeg har allerede brugeren
-                if (currentUser.amounts.SentMails === undefined) {
-                    console.log('problem')
-                    User.updateOne({ authID: profile.id }, { amounts: { SentMails: 0, PendingMails: 0, Coins: 15 } }, function(err, res) {
-                        // Updated at most one doc, `res.modifiedCount` contains the number
-                        // of docs that MongoDB updated
-                        console.log('updated!')
-                    });
-                }
-
                 console.log('user already exists!')
                 done(null, currentUser)
             } else {
@@ -45,26 +36,11 @@ passport.use(
 
                 new User({
 
-                    firstname: profile.name.givenName,
-                    lastname: profile.name.familyName,
-                    email: profile.emails,
-                    amounts: [{ SentMails: 0, PendingMails: 0, Coins: 15 }],
-                    mails: { Sent: [], Pending: [], Drafts: [], Deleted: [] },
-                    authID: profile.id,
-
-                    /// -------- \\\
-
                     authID: profile.id,
     
                     firstname: profile.name.givenName,
                     lastname: profile.name.familyName,
                     Emails: profile.emails,
-
-                    Amounts: {
-                        sentMails: 0, 
-                        pendingMails: 0, 
-                        coins: 0 
-                    },
 
                     Mails: { 
                         Sent: [], 
@@ -72,14 +48,27 @@ passport.use(
                         Drafts: [], 
                         Deleted: [] 
                     },
+                    Groups: [],
                     Settings: [
                         {
                             title: "Tema",
                             description: "Vælg dit tema",
-                            category: "theme",
-                            value: "1",
-                            default: "1",
-                            type: "bool"
+                            category: "Udseende",
+                            Option: {
+                                value: 0,
+                                default: 0,
+                                type: "choose"
+                            }
+                        },
+                        {
+                            title: "Abonnement",
+                            description: "Her kan du vælge dit abonnement",
+                            category: "Abonnement",
+                            Option: {
+                                value: 0,
+                                default: 0,
+                                type: "choose"
+                            }
                         }
                     ],
                     History: {
@@ -87,7 +76,7 @@ passport.use(
                             {
                                 title: "Konto oprettet!",
                                 description: "Tillykke med din konto",
-                                date: "I dag"
+                                date: getDateTime()
                             }
                         ],
                         Transactions: []
@@ -101,3 +90,30 @@ passport.use(
         })
     })
 )
+
+
+function getDateTime() {
+
+    var date = new Date();
+
+    var hour = date.getHours();
+    hour = (hour < 10 ? "0" : "") + hour;
+
+    var min  = date.getMinutes();
+    min = (min < 10 ? "0" : "") + min;
+
+    var sec  = date.getSeconds();
+    sec = (sec < 10 ? "0" : "") + sec;
+
+    var year = date.getFullYear();
+
+    var month = date.getMonth() + 1;
+    month = (month < 10 ? "0" : "") + month;
+
+    var day  = date.getDate();
+    day = (day < 10 ? "0" : "") + day;
+
+    // return year + ":" + month + ":" + day + ":" + hour + ":" + min + ":" + sec;
+    return `${day}/${month}/${year} - ${hour}:${min}`
+
+}

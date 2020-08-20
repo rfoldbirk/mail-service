@@ -8,11 +8,6 @@ const userSchema = new Schema({
     lastname: String,
     Emails: [{ value: String, verified: Boolean }],
 
-    Amounts: {
-        sentMails: Number, 
-        pendingMails: Number, 
-        coins: Number 
-    },
 
     Mails: { 
         Sent: [{
@@ -27,6 +22,7 @@ const userSchema = new Schema({
         Drafts: [Object], 
         Deleted: [Object] 
     },
+    Groups: [],
     Settings: [],
     History: {
         Actions: [

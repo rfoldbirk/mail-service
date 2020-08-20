@@ -22,10 +22,11 @@ function renderContent(req, res, title, content, user) {
     theme = 'theme-dark'
 
     try {
-        content = content.replace('/bodies', '/bodies-bs')
-        content = content.replace('/partials', '/partials-bs')
+        if (content != undefined)
+            content = content.replace('/bodies', '/bodies-bs')
+
     } catch (err) {
-        // intet at erstatte
+        // behøves ikke
     }
 
     let loggedin = (req.user) ? true:false

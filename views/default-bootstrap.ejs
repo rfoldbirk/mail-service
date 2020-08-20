@@ -7,13 +7,15 @@
     <title> Mail Service </title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-    <link rel="stylesheet" href="/assets/css/custom-theme.css">
+    <!-- <link rel="stylesheet" href="/assets/css/custom-theme.css"> -->
 
-    <link rel='stylesheet' type='text/css' media='screen' href='/assets/css/default-bs.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/assets/css/custom-theme.css'>
 
 </head>
 
-<body class="<%= theme %>">
+<body contenteditable="false" class="<%= theme %>">
+
+    <div class="container">
 
         <!-- Sørger for at man kunne kan komme tilbage hvis content er noget andet
         <%if ( locals.content ) { %>
@@ -27,72 +29,17 @@
             Hov! Der skete vist en fejl :/
         <% } %>
         </a> -->
+
+        <%- include('./partials-bs/navbar.ejs'); %>
         
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <!-- Sørger for at man kunne kan komme tilbage hvis content er noget andet -->
-        <%if ( locals.content ) { %>
-            <a class="navbar-brand" href="/">
-        <% } else { %>
-            <a class="navbar-brand">
-        <% } %>
-        <%if ( locals.title ) { %>
-            <%= title %>
-        <% } else { %>
-            Hov! Der skete vist en fejl :/
-        <% } %>
-        </a>
 
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Min Profil
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">
-                            Ny Mail 
-                            <img class="float-right" src="/assets/icons/envelope-open.svg" alt="Ny Mail" width="25" height="25">
-                        </a>
-                        <a class="dropdown-item" href="#">
-                            Kladder 
-                            <img class="float-right" src="/assets/icons/text-left.svg" alt="Kladder" width="25" height="25">
-                        </a>
-                        <a class="dropdown-item" href="#">
-                            Historik 
-                            <img class="float-right" src="/assets/icons/clock.svg" alt="Historik" width="25" height="25">
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="/profile/settings#profile">
-                            Indstillinger
-                            <img class="float-right" src="/assets/icons/gear-wide-connected.svg" alt="Indstillinger" width="25" height="25">
-                        </a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a <%if ( locals.url == '/settings' ) { %>class="nav-link active"<% } else { %>class="nav-link"<% } %> href="/profile/settings" tabindex="-1" aria-disabled="true">Indstillinger</a>
-                </li>
-            </ul>
-
-            <form action="/auth/google">
-                <button class="btn btn-success my-2 my-sm-0" type="submit" >Login / Opret</button>
-            </form>
+        <div style="margin-top: 50px;">
+            <% if (locals.content) { %>
+                <%- include( content ); %>
+            <% } %>
         </div>
-    </nav>
 
-    <% if (locals.content) { %>
-        <%- include( content ); %>
-    <% } %>
+    </div>
 
 
     <script src="/assets/js-libs/jquery.js"></script>
